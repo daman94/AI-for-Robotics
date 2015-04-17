@@ -9,12 +9,14 @@
 /* Begin PBXFileReference section */
 		4105CF0D1ADBA38B00416ABB /* KalmanFilters.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = KalmanFilters.py; sourceTree = "<group>"; };
 		414BD8011ABACB8200ED26C4 /* Localization.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Localization.py; sourceTree = "<group>"; };
+		41B0C8D41AE0DEF6008F8BC5 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		417B8AA41AB97E50006930C3 = {
 			isa = PBXGroup;
 			children = (
+				41B0C8D41AE0DEF6008F8BC5 /* __init__.py */,
 				414BD8011ABACB8200ED26C4 /* Localization.py */,
 				4105CF0D1ADBA38B00416ABB /* KalmanFilters.py */,
 			);
