@@ -102,76 +102,73 @@ def eval(r, p):
 
 
 #########################################
-# Make a robot called myrobot that starts at
-# coordinates 30, 50 heading north (pi/2).
-# Have your robot turn clockwise by pi/2, move
-# 15 m, and sense. Then have it turn clockwise
-# by pi/2 again, move 10 m, and sense again.
+
+#myrobot = robot()
+#myrobot.set(30.,50.,0)
+#myrobot.move(0,10)
+#myrobot.sense()
 #
-# Your program should print out the result of
-# your two sense measurements.
+#myrobot = myrobot.move(-pi/2 , 15)
+#myrobot.sense()
 #
-# Don't modify the code below. Please enter
-# your code at the bottom.
+#myrobot = myrobot.move(-pi/2 , 10)
+#Z = myrobot.sense()
+#myrobot.sense()
+#
+#myrobot.set_noise(5. , 0.1, 5.)
+
 
 myrobot = robot()
-myrobot.set(30.,50.,(pi/2))
-print myrobot.move(0,10)
-print myrobot.sense()
+myrobot = myrobot.move(0.1, 5.0)
+Z = myrobot.sense()
 
-myrobot = myrobot.move(-pi/2 , 15)
-print myrobot.sense()
-
-myrobot = myrobot.move(-pi/2 , 10)
-print myrobot.sense()
-
-myrobot.set_noise(5. , 0.1, 5.)
 
 
 #Creating Particles
 
 N = 1000
+T = 10
+
 p = []
 for i in range(N):
-    x = robot()
-    p.append(x)
-
-p2 = []
+    r = robot()
+    r.set_noise(0.05, 0.05, 5.0)
+    p.append(r)
 
 #Particle motion
 
-for i in range(N):
-    p2.append(p[i].move(0.1, 5.))
+print eval(myrobot , p)
 
-p = p2
-print p
+
+for t in range(T):
+
+    myrobot = myrobot.move(0.1, 5.0)
+    Z = myrobot.sense()
+
+    p2 = []
+    for i in range(N):
+        p2.append(p[i].move(0.1, 5.))
+
+    p = p2
+
+    w = []
+    for i in range(N):
+        w.append(p[i].measurement_prob(Z))
 
 #Resampling Wheel
 
-p3 = []
-index = int(random.random() * N)
-beta = 0.0
-mw = max(w)
-for i in range(N):
-    beta = beta + random.random() * 2 * mw
-    while beta > w[index]:
-        beta = beta - w[index]
-        index = (index + 1 ) % N
-    p3.append(p[index])
-
-p = p3
-
-
-
-
-
-
-
-
-
-
-
-
+    p3 = []
+    index = int(random.random() * N)
+    beta = 0.0
+    mw = max(w)
+    for i in range(N):
+        beta = beta + random.random() * 2.0 * mw
+        while beta > w[index]:
+            beta = beta - w[index]
+            index = (index + 1 ) % N
+        p3.append(p[index])
+    p = p3
+#print p
 
 
 
