@@ -144,8 +144,22 @@ for i in range(N):
     p2.append(p[i].move(0.1, 5.))
 
 p = p2
-print p 
+print p
 
+#Resampling Wheel
+
+p3 = []
+index = int(random.random() * N)
+beta = 0.0
+mw = max(w)
+for i in range(N):
+    beta = beta + random.random() * 2 * mw
+    while beta > w[index]:
+        beta = beta - w[index]
+        index = (index + 1 ) % N
+    p3.append(p[index])
+
+p = p3
 
 
 
