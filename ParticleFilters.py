@@ -103,19 +103,19 @@ def eval(r, p):
 
 #########################################
 
-#myrobot = robot()
-#myrobot.set(30.,50.,0)
-#myrobot.move(0,10)
-#myrobot.sense()
-#
-#myrobot = myrobot.move(-pi/2 , 15)
-#myrobot.sense()
-#
-#myrobot = myrobot.move(-pi/2 , 10)
-#Z = myrobot.sense()
-#myrobot.sense()
-#
-#myrobot.set_noise(5. , 0.1, 5.)
+myrobot = robot()
+myrobot.set(30.,50.,0)
+myrobot.move(0,10)
+myrobot.sense()
+
+myrobot = myrobot.move(-pi/2 , 15)
+myrobot.sense()
+
+myrobot = myrobot.move(-pi/2 , 10)
+Z = myrobot.sense()
+myrobot.sense()
+
+myrobot.set_noise(5. , 0.1, 5.)
 
 
 myrobot = robot()
